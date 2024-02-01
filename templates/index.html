@@ -53,23 +53,18 @@
   </head>
   <body ng-app="myApp" ng-controller="myCtrl">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="text-center mt-4">LoveCharm</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="container box shadow-lg">
-            <div class="container text-center">
-              <div class="d-inline-flex">
+      <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-12 col-md-6">
+          <div class="centered-box box shadow-lg">
+            <div class="text-center">
+              <div class="d-flex justify-content-center align-items-center">
                 <input
                   type="text"
                   name=""
                   id=""
                   ng-model="Male"
                   class="form-control"
-                  placeholder="Romeo"
+                  placeholder="Man...."
                 />
                 <h1 class="mx-4">LOVES</h1>
                 <input
@@ -78,30 +73,27 @@
                   id=""
                   ng-model="Female"
                   class="form-control"
-                  placeholder="Juliet"
+                  placeholder="Woman.."
                 />
                 <button class="mx-2 btn btn-success" ng-click="evaluate()">Evaluate</button>
               </div>
             </div>
           </div>
-          <H1 class="mt-5" align="center">{%raw%}{{value + "%"}}{%endraw%}</H1>
-          <div class="container boxa">
+          <H1 align="center" class="mt-5 text-center text-danger">{%raw%}{{value + "%"}}{%endraw%}</H1>
+          <div class="centered-box boxa">
             <div class="progress" style="height:20px">
-                <div class="progress-bar back  progress-bar-striped progress-bar-animated" style="width:{%raw%}{{value + '%'}}{%endraw%};height:20px"></div>
-              </div>
+              <div class="progress-bar back  progress-bar-striped progress-bar-animated" style="width:{%raw%}{{value + '%'}}{%endraw%};height:20px"></div>
+            </div>
           </div>
         </div>
       </div>
-      <div>
-      
-   
     </div>
 
     <script>
       angular.module("myApp", []).controller("myCtrl", function ($scope, $interval, $http) {    
         $scope.firstName = "John";
         $scope.lastName = "Doe";
-        $scope.value = 10; // Set the initial value here
+        $scope.value = 0; // Set the initial value here
         $scope.evaluate = function (){
             let url = '/api'+'/'+$scope.Male+'/'+$scope.Female;
             $http.get(url).then(function (response) {

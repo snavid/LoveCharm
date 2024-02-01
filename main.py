@@ -7,7 +7,7 @@ from os import environ
 
 app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/statics')
 api = Api(app)
-app.config['SECRET_KEY'] = environ.get('CHROME_RESTART')
+app.config['SECRET_KEY'] = 'i love you'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
 db = SQLAlchemy(app)
